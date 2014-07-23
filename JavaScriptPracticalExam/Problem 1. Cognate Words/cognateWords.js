@@ -1,7 +1,7 @@
 /**
  * Created by Tedo on 23.7.2014 г..
  */
-function Solve(arr) {
+function Solve(arr1) {
     Array.prototype.clean = function (deleteValue) {
         for (var i = 0; i < this.length; i++) {
             if (this[i] == deleteValue) {
@@ -20,8 +20,8 @@ function Solve(arr) {
         }
         return true;
     }
-
-    var words = arr.split(/[\W]+/);
+    var string = arr1[0];
+    var words = string.split(/[\W]+/);
     var result = words.clean('');
     var arr = [];
     var finalResult = '';
@@ -31,6 +31,7 @@ function Solve(arr) {
         for (var j = 0; j < result.length; j++) {
             for (var k = 0; k < result.length; k++) {
                 var str = result[i] + result[j];
+
                 if (str === result[k]) {
                     if (i !== j) {
                         var tempStr = words[i] + "|" + words[j] + "=" + words[k];
@@ -45,25 +46,32 @@ function Solve(arr) {
             }
         }
     }
+//    arr.sort();
     if(arr.length == 0){
         finalResult = 'No';
     }
     else{
 
         for(var i = 0 ; i < arr.length ; i++){
-            finalResult += arr[i] + "\n";
+            if (i < arr.length - 1) {
+                finalResult += arr[i] + "\n";
+            }
+            else{
+                finalResult += arr[i];
+            }
         }
 
     }
+
     return finalResult;
 }
-//console.log(Solve('java..?|basics/*-+=javabasics'));
-//Solve('Hi, Hi, Hihi');
-//Solve('Uni(lo,.ve=I love SoftUni (Soft)');
-//Solve('a a aa a');
-//Solve('x a ab b aba a hello+java a b aaaaa');
-//Solve('aa bb bbaa');
-//Solve('ho hoho');
+console.log(Solve(['java..?|basics/*-+=javabasics']));
+console.log(Solve(['Hi, Hi, Hihi']));
+console.log(Solve(['Uni(lo,.ve=I love SoftUni (Soft)']));
+console.log(Solve(['a a aa a']));
+console.log(Solve(['x a ab b aba a hello+java a b aaaaa']));
+console.log(Solve(['aa bb bbaa']));
+console.log(Solve(['ho hoho']));
 
 
 //java|basics=javabasics - YES
