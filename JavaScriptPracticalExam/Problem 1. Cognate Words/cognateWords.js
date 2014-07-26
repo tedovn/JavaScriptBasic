@@ -21,8 +21,9 @@ function Solve(arr1) {
         return true;
     }
     var string = arr1[0];
-    var words = string.split(/[\W]+/);
+    var words = string.split(/[^a-zA-Z]/g);
     var result = words.clean('');
+    console.log(words);
     var arr = [];
     var finalResult = '';
 //    console.log(words);
@@ -66,13 +67,14 @@ function Solve(arr1) {
     return finalResult;
 }
 console.log(Solve(['java..?|basics/*-+=javabasics']));
-console.log(Solve(['Hi, Hi, Hihi']));
-console.log(Solve(['Uni(lo,.ve=I love SoftUni (Soft)']));
-console.log(Solve(['a a aa a']));
-console.log(Solve(['x a ab b aba a hello+java a b aaaaa']));
-console.log(Solve(['aa bb bbaa']));
-console.log(Solve(['ho hoho']));
 
+//console.log(Solve(['Hi, Hi, Hihi']));
+//console.log(Solve(['Uni(lo,.ve=I love SoftUni (Soft)']));
+//console.log(Solve(['a a aa a']));
+//console.log(Solve(['x a ab b aba a hello+java a b aaaaa']));
+//console.log(Solve(['aa bb bbaa']));
+//console.log(Solve(['ho hoho']));
+//
 
 //java|basics=javabasics - YES
 
